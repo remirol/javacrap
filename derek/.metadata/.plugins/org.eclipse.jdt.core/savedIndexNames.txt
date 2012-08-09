@@ -1,0 +1,4 @@
+INDEX VERSION 1.126+C:\Users\Derek\Dev\javacrap\derek\.metadata\.plugins\org.eclipse.jdt.core
+3352491446.index
+2626373467.index
+2751382638.index
