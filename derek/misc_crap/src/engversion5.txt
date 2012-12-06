@@ -1,0 +1,24 @@
+Phone book
+
+You will create a program that works like a simple phonebook. For every person name and phone number is going to get stored. It should be possible by a menu to:
+
+1. Add people
+2. Search for people with a given name
+3. Search for a person with a given number.
+4. Sort people in alphabetical order
+5. Show all people
+6. End
+
+Your solution shall contain two paralell vectors(fields/arrays); one for phone numbers and one for names. When the program starts the user should tell how many people that 
+the phone book at maximum should be able to handle. After that the vectors is adapted to that.
+
+The program should also contain following:
+1. A method that presents the menu and the user choices, which are returned.
+2. A method that handles the in-data of name, phone numbers and they should be placed in the vectors.
+3. A method that handles search for name. The method shall return the position in the vecctor that the name is placed at. If theree is no person with the given name
+the vector, it should return -1. No indata in this method.
+4. A method that handles the search for numbers. The method, as the previous should return the position of where the phone number is in the vector. And return -1 if 
+there is no person with the number. No indata in this method either.
+5. A method that sorts by name. Observe that if the names is moved in the name vector, the same movement must take place in the number vector. Tip: Use CompareTo-mehtod
+in comparision of strings.
+6. A method that shows all people in the phone book, all names with belonging numbers should show. 
