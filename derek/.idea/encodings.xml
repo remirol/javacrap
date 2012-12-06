@@ -2,12 +2,14 @@
 <project version="4">
   <component name="Encoding" useUTFGuessing="false" native2AsciiForPropertiesFiles="false">
     <file url="file://$PROJECT_DIR$/sarastuff" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/sarastuff/StudentHandler.java" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/../sara/src" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/../sara/src/Student/src/Course.java" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/../sara/src/Student/src/Student.java" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/../sara/src/Student/src/StudentHandler.java" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/../sara/src/Vehicles/src/Car.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/../sara/src/Calculator" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/../sara/src/Runner" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/../sara/src/Student" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/../sara/src/Time" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/../sara/src/TimeDifference" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/../sara/src/Vehicles" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/../sara/src/Övning2" charset="windows-1252" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
