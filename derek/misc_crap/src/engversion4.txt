@@ -1,0 +1,22 @@
+Running
+
+Your program is supposed to handle runners that has run a race. The Race was open for both elite runners and excercise runners.
+
+Each eliter runner had in this system a start number, name, time, club-beloning and licens-number.
+
+Each excercise runner had a startnumber, name, time and registration wheater they have ordered a T-shirt or not.
+
+
+Implement a inheritance hierarcy for the runners. The base class, which is supposed to be abstract, will contain at least one abstract method that is related to when a runner object is being presented on screen.
+The baseclass is supposed containe as much as possible so the sub-classes only contain what is specific for them.
+Only private instance variables.
+
+After that make a class containing the main(..)-method, wich handles runners. That class will use one (1!) ArrayList as a "container" for the runners.
+There should be a meny that offers the following functionality:
+- add excercise runner
+- add elite runner
+- Show all excersice runner
+- show all elite  runners
+- show all runners
+
+All these alternatives should result in calls of suitable methods. 
