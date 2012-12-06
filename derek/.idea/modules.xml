@@ -2,8 +2,16 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../sara/src/Calculator/Calculator.iml" filepath="$PROJECT_DIR$/../sara/src/Calculator/Calculator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../sara/src/Runner/Runner.iml" filepath="$PROJECT_DIR$/../sara/src/Runner/Runner.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../sara/src/Sara.iml" filepath="$PROJECT_DIR$/../sara/src/Sara.iml" />
       <module fileurl="file://$PROJECT_DIR$/sarastuff/Sarastuff.iml" filepath="$PROJECT_DIR$/sarastuff/Sarastuff.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../sara/src/Student/Student.iml" filepath="$PROJECT_DIR$/../sara/src/Student/Student.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../sara/src/Time/Time.iml" filepath="$PROJECT_DIR$/../sara/src/Time/Time.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../sara/src/TimeDifference/TimeDifference.iml" filepath="$PROJECT_DIR$/../sara/src/TimeDifference/TimeDifference.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../sara/src/Vehicles/Vehicles.iml" filepath="$PROJECT_DIR$/../sara/src/Vehicles/Vehicles.iml" />
       <module fileurl="file://$PROJECT_DIR$/misc_crap/misc_crap.iml" filepath="$PROJECT_DIR$/misc_crap/misc_crap.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../sara/src/Övning2/Övning2.iml" filepath="$PROJECT_DIR$/../sara/src/Övning2/Övning2.iml" />
     </modules>
   </component>
 </project>

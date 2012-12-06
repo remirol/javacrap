@@ -1,3 +1,10 @@
+#
+# IntelliJ IDEA
+#
+
+# Build results
+[Oo]ut/
+
 #################
 ## Eclipse
 #################
@@ -44,7 +51,6 @@ local.properties
 # Build results
 [Dd]ebug/
 [Rr]elease/
-[Oo]ut/
 *_i.c
 *_p.c
 *.ilk
