@@ -56,7 +56,7 @@ public class GUI extends JFrame implements ActionListener
 		setSize(700,500);
 		cont.setLayout(new GridLayout(1,2));
 		
-		JPanel leftPanel = new JPanel(new GridLayout(11,1));
+		JPanel leftPanel = new JPanel(new GridLayout(13,1));
 		JPanel rightPanel = new JPanel(new GridLayout(1,1));
 		personList= new JList<Runner>();
 		
@@ -82,9 +82,17 @@ public class GUI extends JFrame implements ActionListener
 		showButton.addActionListener(this);
 		leftPanel.add(showButton);
 		
-		JButton showSelectedButton = new JButton("Visa valda");
+		JButton showSelectedButton = new JButton("Visa Motionslöpare");
 		showSelectedButton.addActionListener(this);
 		leftPanel.add(showSelectedButton); 
+		
+		JButton showEliteRunnerButton = new JButton("Visa Elitlöpare");
+		showEliteRunnerButton.addActionListener(this);
+		leftPanel.add(showEliteRunnerButton);
+		
+		JButton showBestEliteRunnerButton = new JButton("Visa bästa elitlöpare");
+		showBestEliteRunnerButton.addActionListener(this);
+		leftPanel.add(showBestEliteRunnerButton); 
 		
 		JButton clearButton = new JButton("Rensa");
 		clearButton.addActionListener(this);
@@ -127,15 +135,22 @@ public class GUI extends JFrame implements ActionListener
 		if ( theText.equals("Lägg till Elitlöpare"))
 		{	
 			addEliteRunner(); 
-		}
-		
+		}		
 		if(theText.equals("Visa alla"))
 		{
 			showAll();
 		}
-		if(theText.equals("Visa valda"))
+		if(theText.equals("Visa motionslöpare"))
 		{
-			showSelected(); 			
+			showAllExerciseRunners(); 			
+		}
+		if(theText.equals("Visa elitlöpare"))
+		{
+			showAllEliteRunners();
+		}
+		if(theText.equals("Visa bästa elitlöpare"))
+		{
+			showBestEliteRunner(); 
 		}
 		if(theText.equals("Rensa"))
 		{
@@ -145,42 +160,40 @@ public class GUI extends JFrame implements ActionListener
 		{
 			System.exit(0);
 		}
-	}
+	}	
 	
-	private void showAll() 
-	{
-		personList.setListData(logic.showAll());
-	}
 
 	private void addExerciseRunner()
 	{
 		logic.addExerciseRunner(nameField.getText(), startNumber.getText(), runTime.getText(), orderedShirt.isSelected());
-		personList.setListData(logic.showAllExerciseRunners());
+		showAllExerciseRunners(); 
 		clear();
 	}
 	
 	private void addEliteRunner()
 	{
 		logic.addEliteRunner(nameField.getText(), startNumber.getText(), runTime.getText(), clubName.getText(), licNumber.getText());
-		personList.setListData(logic.showAllEliteRunners());
+		showAllEliteRunners();
 		clear(); 
 		
 	}
-	
-	private void showSelected()
+	private void showAll() 
 	{
-		int position = personList.getSelectedIndex();
-		if(position > -1)
-		{
-			//nameField.setText(logic.getNameForPersonAt(position));
-			//startNumber.setText(logic.getPhoneNrForPersonAt(position));
-		}
-		else
-		{
-			JOptionPane.showMessageDialog(null, "Du måste markera en person i listan!");
-		}
+		personList.setListData(logic.showAll());
 	}
 	
+	private void showAllExerciseRunners()
+	{
+		personList.setListData(logic.showAllExerciseRunners());
+	}
+	private void showAllEliteRunners()
+	{
+		personList.setListData(logic.showAllEliteRunners());
+	}
+	private void showBestEliteRunner()
+	{
+		personList.setListData(logic.showBestEliteRunner());
+	}
 	private void clear()
 	{
 		nameField.setText("");

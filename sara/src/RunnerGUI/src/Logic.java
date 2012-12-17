@@ -60,11 +60,12 @@ public class Logic
 		return runners;
 	}
 	
-	 public void showBestEliteRunner(ArrayList<Runner> allRunners)
+	 public Vector<Runner> showBestEliteRunner()
 	 {
+		 
 		  int fastestTime = 99999;    // Långsamt nog för att åtminstonde någon ska slå det
 		  Runner dummy = null; 
-			  for (Runner r : allRunners)
+			  for (Runner r : runners)
 			  {
 			      if(r.getClass()== EliteRunner.class)
 			      {
@@ -75,7 +76,11 @@ public class Logic
 			          }
 			       }
 			  }
-			  System.out.println(dummy.GetRunnerDescription());
+			
+			  Vector <Runner> tempList = new Vector <Runner> ();
+			  tempList.add(dummy); 
+			  return tempList; 
+			 
 	 }
 	
 }
