@@ -7,10 +7,14 @@ public class GUI extends JFrame implements ActionListener
 	//Instansvariabler
 	private Logic logic;
 	private Container cont;		//fönstrets huvudbehållare för grafiska komponenter
+	
 	private JList<Runner> personList;
 	private JTextField nameField;
-	private JTextField phoneNrField;
-	
+	private JTextField startNumber;
+	private JTextField runTime;
+	private JTextField licNumber;
+	private JTextField clubName; 
+	private JCheckBox orderedShirt; 
 	
 	//Main-metod
 	public static void main(String[] args)
@@ -32,33 +36,63 @@ public class GUI extends JFrame implements ActionListener
 		cont = getContentPane();
 		nameField = new JTextField();
 		nameField.setBorder(BorderFactory.createTitledBorder("Namn"));
-		phoneNrField = new JTextField();
-		phoneNrField.setBorder(BorderFactory.createTitledBorder("Telefonnummer"));
-		personList = new JList<Runner>();
-		personList.setBorder(BorderFactory.createTitledBorder("Registrerade personer"));
+		startNumber = new JTextField();
+		startNumber.setBorder(BorderFactory.createTitledBorder("Startnummer"));
+		runTime = new JTextField(); 
+		runTime.setBorder(BorderFactory.createTitledBorder("Tid(vänligen skriv i sekunder)"));
+		licNumber = new JTextField(); 
+		licNumber.setBorder(BorderFactory.createTitledBorder("Licensnummer - för elitlöpare"));
+		clubName = new JTextField();
+		clubName.setBorder(BorderFactory.createTitledBorder("Klubbnamn - för elitlöpare"));
+		orderedShirt = new JCheckBox();
+		orderedShirt.setLabel("Beställt T-shirt? - för motionslöpare");
+		
+		
 	}
 	
 	private void buildFrame()
 	{
 		setTitle("Löpare");
-		setSize(350,250);
+		setSize(700,500);
 		cont.setLayout(new GridLayout(1,2));
 		
-		JPanel leftPanel = new JPanel(new GridLayout(5,1));
+		JPanel leftPanel = new JPanel(new GridLayout(11,1));
+		JPanel rightPanel = new JPanel(new GridLayout(1,1));
+		personList= new JList<Runner>();
+		
+		
+		
+		rightPanel.add(personList);
 		leftPanel.add(nameField);
-		leftPanel.add(phoneNrField);
-		JButton addButton = new JButton("Lägg till");
+		leftPanel.add(startNumber);
+		leftPanel.add(runTime); 
+		leftPanel.add(clubName); 
+		leftPanel.add(licNumber); 
+		leftPanel.add(orderedShirt);
+		
+		JButton addButton = new JButton("Lägg till Motionslöpare");
 		addButton.addActionListener(this);
-		leftPanel.add(addButton);
-		JButton showButton = new JButton("Visa");
+		leftPanel.add(addButton); 
+		
+		JButton addButtonElite = new JButton("Lägg till Elitlöpare");
+		addButtonElite.addActionListener(this); 
+		leftPanel.add(addButtonElite);
+		
+		JButton showButton = new JButton("Visa alla");
 		showButton.addActionListener(this);
 		leftPanel.add(showButton);
+		
+		JButton showSelectedButton = new JButton("Visa valda");
+		showSelectedButton.addActionListener(this);
+		leftPanel.add(showSelectedButton); 
+		
 		JButton clearButton = new JButton("Rensa");
 		clearButton.addActionListener(this);
 		leftPanel.add(clearButton);
-		cont.add(leftPanel);
 		
-		cont.add(personList);
+		cont.add(leftPanel);
+		cont.add(rightPanel); 
+	//	cont.add(personList);
 		
 		buildMenu();
 		
@@ -86,13 +120,22 @@ public class GUI extends JFrame implements ActionListener
 	public void actionPerformed(ActionEvent event)
 	{
 		String theText = event.getActionCommand();
-		if(theText.equals("Lägg till"))
+		if(theText.equals("Lägg till Motionslöpare"))
 		{
-			add();
-		}		
-		if(theText.equals("Visa"))
+			addExerciseRunner();
+		}	
+		if ( theText.equals("Lägg till Elitlöpare"))
+		{	
+			addEliteRunner(); 
+		}
+		
+		if(theText.equals("Visa alla"))
 		{
-			showSelected();
+			showAll();
+		}
+		if(theText.equals("Visa valda"))
+		{
+			showSelected(); 			
 		}
 		if(theText.equals("Rensa"))
 		{
@@ -104,11 +147,24 @@ public class GUI extends JFrame implements ActionListener
 		}
 	}
 	
-	private void addExersiceRunner()
+	private void showAll() 
 	{
-		logic.addPerson(nameField.getText(), phoneNrField.getText());
-		personList.setListData(logic.getAllPersons());
+		personList.setListData(logic.showAll());
+	}
+
+	private void addExerciseRunner()
+	{
+		logic.addExerciseRunner(nameField.getText(), startNumber.getText(), runTime.getText(), orderedShirt.isSelected());
+		personList.setListData(logic.showAllExerciseRunners());
 		clear();
+	}
+	
+	private void addEliteRunner()
+	{
+		logic.addEliteRunner(nameField.getText(), startNumber.getText(), runTime.getText(), clubName.getText(), licNumber.getText());
+		personList.setListData(logic.showAllEliteRunners());
+		clear(); 
+		
 	}
 	
 	private void showSelected()
@@ -116,8 +172,8 @@ public class GUI extends JFrame implements ActionListener
 		int position = personList.getSelectedIndex();
 		if(position > -1)
 		{
-			nameField.setText(logic.getNameForPersonAt(position));
-			phoneNrField.setText(logic.getPhoneNrForPersonAt(position));
+			//nameField.setText(logic.getNameForPersonAt(position));
+			//startNumber.setText(logic.getPhoneNrForPersonAt(position));
 		}
 		else
 		{
@@ -128,7 +184,11 @@ public class GUI extends JFrame implements ActionListener
 	private void clear()
 	{
 		nameField.setText("");
-		phoneNrField.setText("");	
+		startNumber.setText("");
+		runTime.setText(""); 
+		licNumber.setText("");
+		clubName.setText("");
+		orderedShirt.setSelected(false); // ta INTE set enabled som jag gjorde först. Det blir liiite fel. 
 	}
 	
 }

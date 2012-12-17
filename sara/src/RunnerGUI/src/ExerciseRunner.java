@@ -23,11 +23,18 @@ public class ExerciseRunner extends Runner
 	 public String GetRunnerDescription()
 	    {
 		 
-		 return "Namn: " + this.runnerName + "\n"
-	    + "Startnummer: " + this.startNumber + "\n"
-		+ "Tid: " + this.runTime + "\n" 
+		 return "Namn: " + this.runnerName + ", "
+	    + "Startnummer: " + this.startNumber + ", "
+		+ "Tid: " + this.runTime + ", " 
 	    + "Shirt: " + this.orderedShirt;
 	    }
+	 
+	 @Override
+	 public String toString()
+	 {
+		 
+		 return GetRunnerDescription(); 
+	 }
 	
 }
 

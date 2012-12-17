@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Vector;
 
 public class Logic
@@ -12,16 +13,69 @@ public class Logic
 	}
 	
 	//Metoder
-	public void addEliteRunner(String name, String number, int time, String club, String license)
+	public void addExerciseRunner(String name, String number, String time, boolean shirt)
 	{
-		runners.add(new EliteRunner(name, number, time, club, license));
+		int runTime = Integer.parseInt(time);
+		
+		runners.add(new ExerciseRunner(name, number, runTime, shirt));
 		
 	}
-	public void addExersiceRunner(String name, String number, int time, boolean shirt)
+	
+	public void addEliteRunner(String name, String number, String time, String club, String license)
 	{
-		runners.add(new ExerciseRunner(name, number, time, shirt));
+		int runTime = Integer.parseInt(time);
+		runners.add(new EliteRunner(name, number, runTime, club, license));
+		
 	}
 	
+	public Vector<ExerciseRunner> showAllExerciseRunners()
+	{
+		Vector<ExerciseRunner> ERunners = new Vector<ExerciseRunner>();
+		for(Runner r : runners)
+		{
+			if(r.getClass() == ExerciseRunner.class)
+			{
+				ERunners.add((ExerciseRunner)r); // säker casting, hah
+			}
+		}
+			return ERunners; 
+	}
+	// visa alla elitlöpare
+	public Vector<EliteRunner> showAllEliteRunners()
+	{
+		Vector<EliteRunner> ElRunners = new Vector<EliteRunner>();
+		for(Runner r : runners)
+		{
+			if(r.getClass() == EliteRunner.class)
+			{
+				ElRunners.add((EliteRunner)r);
+				
+			}
+		}
+		return ElRunners; 
+	}
+	public Vector<Runner> showAll()
+	{
+		
+		return runners;
+	}
 	
+	 public void showBestEliteRunner(ArrayList<Runner> allRunners)
+	 {
+		  int fastestTime = 99999;    // Långsamt nog för att åtminstonde någon ska slå det
+		  Runner dummy = null; 
+			  for (Runner r : allRunners)
+			  {
+			      if(r.getClass()== EliteRunner.class)
+			      {
+			           if(r.runTime < fastestTime)
+			          {
+			                   fastestTime = r.runTime;  // reset snabbaste tiden
+			                    dummy = r;                // spara kopia av nya snabbaste objektet
+			          }
+			       }
+			  }
+			  System.out.println(dummy.GetRunnerDescription());
+	 }
 	
 }

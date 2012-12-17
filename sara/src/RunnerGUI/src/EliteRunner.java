@@ -26,11 +26,17 @@ public class EliteRunner extends Runner
 	@Override
 	public String GetRunnerDescription()
 	{
-		return "Namn: " + this.runnerName +	"\n"
-				+ "Startnummer: " + this.startNumber + "\n"
-				+ "Tid: " + this.runTime + "\n"
-				+ "Klubb: " + this.clubName + "\n" +  
+		return "Namn: " + this.runnerName +	", "
+				+ "Startnummer: " + this.startNumber + ", "
+				+ "Tid: " + this.runTime + ", "
+				+ "Klubb: " + this.clubName + ", " +  
 				"Licensnummer: " + 	this.licenseNumber  ;
+	}
+	
+	public String toString()
+	{
+		
+		return GetRunnerDescription();
 	}
 	
 	
